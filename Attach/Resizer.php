@@ -193,6 +193,8 @@ class Resizer
         switch (strtolower($extension)) {
             case 'jpg':
             case 'jpeg':
+            case 'JPG':
+            case 'JPEG':
                 // Check JPG support is enabled
                 if (imagetypes() & IMG_JPG) {
                     imagejpeg($this->imageResized, $savePath, $imageQuality);
@@ -200,6 +202,7 @@ class Resizer
                 break;
 
             case 'gif':
+            case 'GIF':
                 // Check GIF support is enabled
                 if (imagetypes() & IMG_GIF) {
                     imagegif($this->imageResized, $savePath);
@@ -207,6 +210,7 @@ class Resizer
                 break;
 
             case 'png':
+            case 'PNG':
                 // Scale quality from 0-100 to 0-9
                 $scaleQuality = round(($imageQuality/100) * 9);
 
